@@ -71,108 +71,93 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "auto", padding: 20 }}>
-      <h2>Cadastro de Usuário</h2>
-      <form onSubmit={handleSubmit} noValidate>
-        <div style={{ marginBottom: 15 }}>
-          <label>Nome</label>
-          <input
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, fontSize: 16 }}
-          />
-          {erros.nome && <p style={{ color: "red" }}>{erros.nome}</p>}
-        </div>
+<div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-primary mb-6 text-center">Cadastro de Usuário</h2>
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+            <input
+              name="nome"
+              value={formData.nome}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition"
+            />
+            {erros.nome && <p className="text-error text-sm mt-1">{erros.nome}</p>}
+          </div>
 
-        <div style={{ marginBottom: 15 }}>
-          <label>E-mail</label>
-          <input
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, fontSize: 16 }}
-          />
-          {erros.email && <p style={{ color: "red" }}>{erros.email}</p>}
-        </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+            <input
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition"
+            />
+            {erros.email && <p className="text-error text-sm mt-1">{erros.email}</p>}
+          </div>
 
-        <div style={{ marginBottom: 15 }}>
-          <label>Telefone</label>
-          <InputMask
-            mask="(__) ____-____"
-            replacement={{ _: /\d/ }}
-            modify={(input: { value: string }) => {
-              const digits = (input.value || "").replace(/\D/g, "");
-              return {
-                mask: digits.length > 10 ? "(__) _____-_____" : "(__) ____-____",
-              };
-            }}
-            name="telefone"
-            value={formData.telefone}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setFormData((f) => ({ ...f, telefone: e.target.value }));
-            }}
-            type="tel"
-            style={{ width: "100%", padding: 8, fontSize: 16 }}
-          />
-          {erros.telefone && <p style={{ color: "red" }}>{erros.telefone}</p>}
-        </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+            <InputMask
+              mask="(__) ____-____"
+              replacement={{ _: /\d/ }}
+              modify={(input: { value: string }) => {
+                const digits = (input.value || "").replace(/\D/g, "");
+                return {
+                  mask: digits.length > 10 ? "(__) _____-_____" : "(__) ____-____",
+                };
+              }}
+              name="telefone"
+              value={formData.telefone}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setFormData((f) => ({ ...f, telefone: e.target.value }));
+              }}
+              type="tel"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition"
+            />
+            {erros.telefone && <p className="text-error text-sm mt-1">{erros.telefone}</p>}
+          </div>
 
-        <div style={{ marginBottom: 15 }}>
-          <label>Senha</label>
-          <input
-            name="senha"
-            type="password"
-            value={formData.senha}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, fontSize: 16 }}
-          />
-          {erros.senha && <p style={{ color: "red" }}>{erros.senha}</p>}
-        </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+            <input
+              name="senha"
+              type="password"
+              value={formData.senha}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition"
+            />
+            {erros.senha && <p className="text-error text-sm mt-1">{erros.senha}</p>}
+          </div>
 
-        <div style={{ marginBottom: 15 }}>
-          <label>Confirmar Senha</label>
-          <input
-            name="confirmarSenha"
-            type="password"
-            value={formData.confirmarSenha}
-            onChange={handleChange}
-            style={{ width: "100%", padding: 8, fontSize: 16 }}
-          />
-          {erros.confirmarSenha && (
-            <p style={{ color: "red" }}>{erros.confirmarSenha}</p>
-          )}
-        </div>
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Confirmar Senha</label>
+            <input
+              name="confirmarSenha"
+              type="password"
+              value={formData.confirmarSenha}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition"
+            />
+            {erros.confirmarSenha && <p className="text-error text-sm mt-1">{erros.confirmarSenha}</p>}
+          </div>
 
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: 10,
-            backgroundColor: "#007bff",
-            color: "#fff",
-            fontSize: 18,
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Cadastrar
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-primary text-white py-2 px-4 rounded-md bg-blue-800 hover:bg-blue-900 transition font-medium"
+          >
+            Cadastrar
+          </button>
+        </form>
 
-      {sucesso && (
-        <p
-          style={{
-            marginTop: 20,
-            color: "green",
-            fontWeight: "bold",
-            fontSize: 16,
-          }}
-        >
-          Usuário cadastrado com sucesso!
-        </p>
-      )}
+        {sucesso && (
+          <p className="mt-4 text-success font-semibold text-center">
+            Usuário cadastrado com sucesso!
+          </p>
+        )}
+      </div>
     </div>
   );
 };

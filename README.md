@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+````markdown
+# 📝 Formulário de Cadastro de Usuário
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto simples de um formulário de **cadastro de usuário** desenvolvido com **React + TypeScript** usando o bundler **Vite**.  
+Inclui validação com **Yup** e máscara para telefone brasileiro usando **@react-input/mask**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Pré-requisitos
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) (versão 16 ou superior)  
+- npm (versão 8 ou superior)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Instalação
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Clone o repositório**:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <URL_DO_REPOSITORIO>
+````
+
+2. **Acesse o diretório do projeto**:
+
+```bash
+cd project-3
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Instale as dependências**:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+4. **Inicie o servidor de desenvolvimento**:
+
+```bash
+npm run dev
+```
+
+5. **Abra o navegador e acesse**:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🧪 Uso
+
+### 🖋️ Preenchimento do Formulário:
+
+* **Nome**: mínimo de 3 caracteres
+* **E-mail**: deve ser válido (ex.: [usuario@exemplo.com](mailto:usuario@exemplo.com))
+* **Telefone**: número brasileiro com 10 ou 11 dígitos (ex.: (41) 9521-3923 ou (41) 99521-3923)
+* **Senha**: mínimo de 6 caracteres
+* **Confirmar Senha**: deve ser igual à senha
+
+✅ Ao clicar em **"Cadastrar"**, o formulário será validado.
+Se tudo estiver certo, uma mensagem de sucesso será exibida.
+
+⚠️ Erros de validação são exibidos abaixo de cada campo em **vermelho**.
+
+---
+
+## 📦 Dependências
+
+* [React](https://reactjs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Vite](https://vitejs.dev/)
+* [Yup](https://github.com/jquense/yup): validação de campos
+* [@react-input/mask](https://github.com/siunov/react-input-mask): máscara dinâmica para telefone
+
+
