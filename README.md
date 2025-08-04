@@ -17,7 +17,7 @@ Inclui validação com **Yup** e máscara para telefone brasileiro usando **@rea
 1. **Clone o repositório**:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/sasa2754/project-3
 ````
 
 2. **Acesse o diretório do projeto**:
